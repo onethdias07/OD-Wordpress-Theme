@@ -1,0 +1,20 @@
+// Main SCSS file that imports all components
+
+// Abstracts
+@import 'scss/abstracts/variables';
+@import 'scss/abstracts/functions';
+@import 'scss/abstracts/mixins';
+
+// Base styles
+@import 'scss/base/reset';
+@import 'scss/base/typography';
+
+// Layout
+@import 'scss/layout/header';
+@import 'scss/layout/footer';
+
+// Components
+@import 'scss/components/buttons';
+
+// Pages
+@import 'scss/pages/home';

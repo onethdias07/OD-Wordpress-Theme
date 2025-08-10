@@ -1,0 +1,34 @@
+// Basic reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  color: $dark-color;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+ul, ol {
+  list-style: none;
+}
