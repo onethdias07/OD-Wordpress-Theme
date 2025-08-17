@@ -1,5 +1,4 @@
-// get-vw
 @function get-vw($target) {
-  $vw-context: (1920.01) 1px;
-  @return (calc($target/$vw-context)) * 1vw;
+  $vw-context: 1920; // your design width
+  @return ($target / $vw-context) * 100vw;
 }

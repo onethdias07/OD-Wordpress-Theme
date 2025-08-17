@@ -1,21 +1,212 @@
 header{
     .header-nav-container{
         background-color: black;
+        // Remove overflow: hidden as it cuts off the sub-menu
+        box-shadow: 0 get-vw(2) get-vw(5) rgba(0, 0, 0, 0.1);
+        
         .header-nav{
             display: flex;
-            justify-content: start;
+            justify-content: flex-end;
             align-items: center;
-            padding: 1rem;
+            padding: get-vw(20);
+            max-width: get-vw(1200);
+            margin: 0 auto;
+            
+            li {
+                position: relative;
+                margin: 0 get-vw(5);
+                list-style: none;
+                
+                &.current-menu-item > a {
+                    font-weight: bold;
+                    position: relative;
+                    
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: get-vw(-2);
+                        left: get-vw(20);
+                        right: get-vw(20);
+                        height: get-vw(2);
+                        background-color: white;
+                    }
+                    
+                    // Prevent transform on hover for active items
+                    &:hover {
+                        transform: none;
+                    }
+                }
+            }
 
             a{
                 color: white;
                 text-decoration: none;
-                padding: 0.5rem 1rem;
+                padding: get-vw(12) get-vw(20);
+                font-family: 'Montserrat', sans-serif;
+                display: block;
+                transition: all 0.3s ease;
+                border-radius: get-vw(3);
 
                 &:hover{
-                    background-color: darken(black, 10%);
+                    background-color: rgba(255, 255, 255, 0.1);
+                    transform: translateY(get-vw(-2));
                 }
+            }
+            
+            // Menu items with children - fix dropdown indicator
+            .menu-item-has-children {
+                position: relative;
+                
+                // Dropdown indicator - using a separate pseudo-element
+                > a {
+                    position: relative;
+                    padding-right: get-vw(35); // Add space for the indicator
+                    
+                    &::before {
+                        content: '▼';
+                        font-size: 0.7em;
+                        position: absolute;
+                        right: get-vw(15);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        transition: transform 0.3s ease;
+                    }
+                }
+                
+                &:hover > a::before {
+                    transform: translateY(-50%) rotate(180deg);
+                }
+                
+                // Remove the previous after pseudo-element that was causing conflicts
+                > a:after {
+                    content: none;
+                }
+                
+                // For active parent items, ensure the indicator stays visible
+                &.current-menu-item > a::before,
+                &.current-menu-parent > a::before,
+                &.current-menu-ancestor > a::before {
+                    content: '▼';
+                }
+                
+                // Remove conflicting styles for active items
+                &.current-menu-item > a:after,
+                &.current-menu-parent > a:after,
+                &.current-menu-ancestor > a:after {
+                    // Keep only the underline effect, not the dropdown arrow
+                    content: '';
+                    position: absolute;
+                    bottom: get-vw(-2);
+                    left: get-vw(20);
+                    right: get-vw(35); // Adjusted to avoid overlapping with dropdown icon
+                    height: get-vw(2);
+                    background-color: white;
+                    transform: none;
+                    top: auto;
+                }
+                
+                // Sub-menu styling
+                .sub-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    min-width: get-vw(220);
+                    background-color: #111;
+                    border-radius: get-vw(4);
+                    padding: get-vw(8) 0;
+                    z-index: 100;
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translateY(get-vw(10));
+                    transition: all 0.3s ease;
+                    box-shadow: 0 get-vw(5) get-vw(15) rgba(0, 0, 0, 0.3);
+                    display: block; /* Ensure display is set to block */
+                    
+                    li {
+                        display: block;
+                        width: 100%;
+                        margin: get-vw(2) 0;
+                        
+                        a {
+                            display: block;
+                            padding: get-vw(10) get-vw(20);
+                            white-space: nowrap;
+                            font-size: 0.95em;
+                            border-radius: 0;
+                            
+                            &:hover {
+                                background-color: rgba(255, 255, 255, 0.1);
+                                transform: translateX(get-vw(5));
+                            }
+                        }
+                        
+                        // Prevent transforms on active sub-menu items
+                        &.current-menu-item > a:hover {
+                            transform: none;
+                        }
+                    }
+                    
+                    // Nested menu items with children (second level)
+                    .menu-item-has-children {
+                        position: relative;
+                        
+                        // Add right-pointing indicator for items with nested sub-menus
+                        > a::before {
+                            content: '►';
+                            font-size: 0.7em;
+                            position: absolute;
+                            right: get-vw(10);
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                        
+                        // Position the nested sub-menu (second level)
+                        > .sub-menu {
+                            top: 0;
+                            left: 98%;
+                            transform: translateX(get-vw(5));
+                        }
+                        
+                        // Show nested sub-menu on hover
+                        &:hover > .sub-menu {
+                            opacity: 1;
+                            visibility: visible;
+                            transform: translateX(0);
+                        }
+                        
+                        // Change hover effect for items with nested menus
+                        &:hover > a {
+                            background-color: rgba(255, 255, 255, 0.15);
+                            transform: translateX(get-vw(3));
+                        }
+                    }
+                }
+                
+                // Show sub-menu on hover - this was missing
+                &:hover > .sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+            
+            // Fix active state indicators for all levels
+            li.current-menu-item > a,
+            li.current-menu-ancestor > a {
+                font-weight: bold;
             }
         }
     }
+}
+
+// Animation for sub-menu appearance
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(get-vw(10)); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+// Enhance animation for multi-level menus
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(get-vw(10)); }
+    to { opacity: 1; transform: translateX(0); }
 }
