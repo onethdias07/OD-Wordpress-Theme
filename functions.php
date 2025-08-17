@@ -14,3 +14,14 @@ function od_theme_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'od_theme_scripts');
+
+
+// Theme Options
+add_theme_support('menus');
+
+
+
+// Menus
+register_nav_menus(array(
+    'Header-Nav' => __('Header Nav', 'od-theme'),
+));

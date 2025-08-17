@@ -1,0 +1,21 @@
+header{
+    .header-nav-container{
+        background-color: black;
+        .header-nav{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 1rem;
+
+            a{
+                color: white;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+
+                &:hover{
+                    background-color: darken(black, 10%);
+                }
+            }
+        }
+    }
+}

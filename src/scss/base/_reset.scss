@@ -10,9 +10,7 @@ html {
 }
 
 body {
-  font-family: $base-font-family;
-  line-height: $base-line-height;
-  color: $dark-color;
+
 }
 
 img {
@@ -25,7 +23,7 @@ a {
   color: $primary-color;
   
   &:hover {
-    color: darken($primary-color, 10%);
+  
   }
 }
 
