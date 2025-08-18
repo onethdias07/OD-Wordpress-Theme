@@ -194,3 +194,27 @@ header .header-nav-container .header-nav li.current-menu-ancestor > a {
     transform: translateX(0);
   }
 }
+.archive-page {
+  padding: 2.6041666667vw;
+}
+.archive-page h1 {
+  font-size: 1.875vw;
+  margin-bottom: 1.0416666667vw;
+  font-family: "Montserrat", sans-serif;
+}
+.archive-page .archive-post {
+  margin-bottom: 1.5625vw;
+  padding: 1.0416666667vw;
+  border: 1px solid black;
+  border-radius: 0.2604166667vw;
+}
+.archive-page .archive-post h3 {
+  font-size: 1.25vw;
+  margin-bottom: 0.5208333333vw;
+  font-family: "Montserrat", sans-serif;
+}
+.archive-page .archive-post p {
+  font-size: 0.8333333333vw;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+}

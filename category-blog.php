@@ -2,8 +2,8 @@
 
 
 <div class="archive-page">
-    <h1>Archive Page</h1>
-    
+    <h1>Category Page</h1>
+
     <?php get_template_part( 'includes/section', 'archive' ); ?>
     
     <nav class="pagination">

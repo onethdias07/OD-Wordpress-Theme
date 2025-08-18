@@ -1,0 +1,24 @@
+.archive-page{
+    padding: get-vw(50);
+    h1{
+        font-size: get-vw(36);
+        margin-bottom: get-vw(20);
+        font-family: 'Montserrat', sans-serif;
+    }
+    .archive-post{
+        margin-bottom: get-vw(30);
+        padding: get-vw(20);
+        border: 1px solid darken(black, 5%);
+        border-radius: get-vw(5);
+        h3{
+            font-size: get-vw(24);
+            margin-bottom: get-vw(10);
+            font-family: 'Montserrat', sans-serif;
+        }
+        p{
+            font-size: get-vw(16);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+        }
+    }
+}
