@@ -210,3 +210,364 @@ header{
     from { opacity: 0; transform: translateX(get-vw(10)); }
     to { opacity: 1; transform: translateX(0); }
 }
+
+.site-header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 100;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  
+  .site-branding {
+    display: flex;
+    align-items: center;
+    
+    .custom-logo {
+      max-height: 60px;
+      width: auto;
+    }
+    
+    .site-title {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.6rem;
+      margin: 0;
+      
+      a {
+        color: #2c3e50;
+        text-decoration: none;
+        
+        &:hover {
+          color: #3498db;
+        }
+      }
+    }
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .main-navigation {
+    margin-right: 1.5rem;
+    
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        position: relative;
+        margin-right: 1.5rem;
+        
+        &:last-child {
+          margin-right: 0;
+        }
+        
+        a {
+          font-family: 'Poppins', sans-serif;
+          font-size: 1rem;
+          color: #334155;
+          text-decoration: none;
+          padding: 0.5rem 0;
+          display: block;
+          position: relative;
+          transition: color 0.2s ease;
+          
+          &:hover, &:focus {
+            color: #3498db;
+          }
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+          }
+        }
+        
+        &.current-menu-item > a,
+        &:hover > a {
+          &::after {
+            width: 100%;
+          }
+        }
+        
+        // Add dropdown indicator for top-level items with sub-menus
+        &.menu-item-has-children {
+          > a {
+            padding-right: 1.5rem;
+            position: relative;
+            
+            &:before {
+              content: '\f107'; // Font Awesome down arrow
+              font-family: 'Font Awesome 5 Free';
+              font-weight: 900;
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              color: #334155;
+              font-size: 0.8rem;
+              transition: transform 0.2s ease;
+            }
+          }
+          
+          &:hover > a:before {
+            transform: translateY(-50%) rotate(-180deg);
+            color: #3498db;
+          }
+        }
+        
+        // First-level dropdown styling
+        .sub-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #fff;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          min-width: 200px;
+          border-radius: 6px;
+          z-index: 999;
+          padding: 0.5rem 0;
+          
+          li {
+            margin: 0;
+            width: 100%;
+            
+            a {
+              padding: 0.7rem 1rem;
+              
+              &::after {
+                display: none;
+              }
+              
+              &:hover {
+                background-color: #f8fafc;
+              }
+            }
+            
+            // Indicator for items with nested sub-menus
+            &.menu-item-has-children > a {
+              &:before {
+                content: none; // Remove the down arrow
+              }
+              
+              &:after {
+                content: '\f105'; // Font Awesome right arrow
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 900;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: transform 0.2s ease;
+                color: #334155;
+              }
+              
+              &:hover:after {
+                transform: translateY(-50%) translateX(3px);
+                color: #3498db;
+              }
+            }
+            
+            // Second-level dropdown (nested sub-menu)
+            .sub-menu {
+              top: 0;
+              left: 100%;
+              margin-left: 0;
+              border-radius: 6px;
+              
+              // Slightly different styling for nested menu
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+              background-color: #f8fafc;
+              
+              li {
+                a {
+                  &:hover {
+                    background-color: #edf2f7;
+                  }
+                }
+              }
+            }
+          }
+        }
+        
+        // Show on hover
+        &:hover > .sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
+  
+  .header-search {
+    .search-form {
+      display: flex;
+      align-items: center;
+      
+      .search-field {
+        width: 180px;
+        height: 38px;
+        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid #e2e8f0;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+        
+        &:focus {
+          width: 220px;
+          outline: none;
+          border-color: #3498db;
+          box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+      }
+      
+      .search-submit {
+        position: absolute;
+        right: 5px;
+        height: 28px;
+        width: 28px;
+        padding: 0;
+        border-radius: 50%;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0;
+        
+        &::before {
+          content: '\f002'; // Font Awesome search icon
+          font-family: 'Font Awesome 5 Free';
+          font-weight: 900;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  
+  // Mobile styles
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .header-right {
+      width: 100%;
+      margin-top: 1rem;
+      flex-direction: column;
+    }
+    
+    .main-navigation {
+      margin-right: 0;
+      margin-bottom: 1rem;
+      width: 100%;
+      
+      ul {
+        flex-direction: column;
+        
+        li {
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+          
+          &.menu-item-has-children {
+            > a {
+              position: relative;
+              
+              &:before {
+                right: 0;
+                top: 0.5rem;
+              }
+              
+              &.active:before {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          
+          // Mobile dropdown handling
+          .sub-menu {
+            position: static;
+            box-shadow: none;
+            display: none;
+            width: 100%;
+            padding-left: 1rem;
+            background: transparent;
+            
+            li {
+              padding-left: 1rem;
+              
+              a {
+                padding: 0.5rem 0;
+                
+                &:hover {
+                  background: transparent;
+                }
+              }
+              
+              &.menu-item-has-children > a:after {
+                right: 0;
+                transform: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// JavaScript functionality for mobile dropdown toggle
+// Add the following script to your main JS file:
+/*
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuToggle = document.querySelector('.menu-toggle');
+  const primaryMenu = document.querySelector('#primary-menu');
+  
+  if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', function() {
+      primaryMenu.classList.toggle('active');
+    });
+  }
+  
+  // Sub-menu toggle on mobile
+  const hasChildrenLinks = document.querySelectorAll('.menu-item-has-children > a');
+  
+  hasChildrenLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.classList.toggle('active');
+        const subMenu = this.nextElementSibling;
+        
+        if (subMenu.style.display === 'block') {
+          subMenu.style.display = 'none';
+        } else {
+          subMenu.style.display = 'block';
+        }
+      }
+    });
+  });
+});
+*/
