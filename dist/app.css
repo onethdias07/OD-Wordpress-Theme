@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap);
 @charset "UTF-8";
 * {
   margin: 0;
@@ -20,6 +21,118 @@ a {
 }
 ul, ol {
   list-style: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  color: #3a4750;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", Georgia, serif;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.7rem;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+@media (max-width: 768px) {
+  h4 {
+    font-size: 1.3rem;
+  }
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #2980b9;
+}
+
+article {
+  font-family: "Merriweather", Georgia, serif;
+}
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+.text-muted {
+  color: #7f8c8d;
+}
+
+blockquote {
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #3498db;
+  background-color: #f8fafc;
+  font-style: italic;
+}
+
+code, pre {
+  font-family: "Source Code Pro", Consolas, Monaco, "Andale Mono", monospace;
 }
 
 header .header-nav-container {
@@ -195,26 +308,648 @@ header .header-nav-container .header-nav li.current-menu-ancestor > a {
   }
 }
 .archive-page {
-  padding: 2.6041666667vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 .archive-page h1 {
-  font-size: 1.875vw;
-  margin-bottom: 1.0416666667vw;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
 }
-.archive-page .archive-post {
-  margin-bottom: 1.5625vw;
-  padding: 1.0416666667vw;
-  border: 1px solid black;
-  border-radius: 0.2604166667vw;
+@media (max-width: 768px) {
+  .archive-page h1 {
+    font-size: 2.2rem;
+  }
 }
-.archive-page .archive-post h3 {
-  font-size: 1.25vw;
-  margin-bottom: 0.5208333333vw;
-  font-family: "Montserrat", sans-serif;
+.archive-page .archive-posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
-.archive-page .archive-post p {
-  font-size: 0.8333333333vw;
-  font-family: "Montserrat", sans-serif;
-  line-height: 1.5;
+.archive-page .archive-posts .archive-post {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.archive-page .archive-posts .archive-post .post-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+.archive-page .archive-posts .archive-post .post-link:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.archive-page .archive-posts .archive-post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+.archive-page .archive-posts .archive-post:hover h2 {
+  color: #3498db;
+}
+.archive-page .archive-posts .archive-post header {
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+.archive-page .archive-posts .archive-post header h2 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
+  color: #2c3e50;
+  transition: color 0.2s ease;
+}
+.archive-page .archive-posts .archive-post header h2 a {
+  color: #2c3e50;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.archive-page .archive-posts .archive-post header h2 a:hover {
+  color: #3498db;
+}
+.archive-page .archive-posts .archive-post .post-thumbnail {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.archive-page .archive-posts .archive-post .post-thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.archive-page .archive-posts .archive-post .post-thumbnail img:hover {
+  transform: scale(1.05);
+}
+.archive-page .archive-posts .archive-post .archive-excerpt {
+  padding: 1.2rem 1.5rem;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #5a6a7a;
+  line-height: 1.7;
+  font-family: "Merriweather", Georgia, serif;
+}
+.archive-page .archive-posts .archive-post .archive-meta {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+.archive-page .archive-posts .archive-post .archive-meta .post-meta {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 1.2rem;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.archive-page .archive-posts .archive-post .archive-meta .post-meta span {
+  margin-right: 1rem;
+}
+.archive-page .archive-posts .archive-post .archive-meta .post-meta span:last-child {
+  margin-right: 0;
+}
+.archive-page .archive-posts .archive-post .archive-meta .read-more {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+.archive-page .archive-posts .archive-post:hover .read-more {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+.archive-page nav.pagination {
+  margin-top: 3rem;
+  text-align: center;
+}
+.archive-page nav.pagination ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.archive-page nav.pagination ul li {
+  margin: 0 0.25rem;
+}
+.archive-page nav.pagination ul li a,
+.archive-page nav.pagination ul li span {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+.archive-page nav.pagination ul li a:hover,
+.archive-page nav.pagination ul li span:hover {
+  background-color: #3498db;
+  color: white;
+}
+.archive-page nav.pagination ul li span.current {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  gap: 2rem;
+}
+.content-wrapper .content-area {
+  flex: 1;
+  min-width: 0;
+}
+.content-wrapper .content-area .single-page {
+  margin: 0;
+}
+.content-wrapper .sidebar {
+  width: 300px;
+}
+.content-wrapper .sidebar li {
+  list-style: none;
+}
+.content-wrapper .sidebar .widget {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.content-wrapper .sidebar .widget:last-child {
+  margin-bottom: 0;
+}
+.content-wrapper .sidebar .widget .widget-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: #2c3e50;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+.content-wrapper .sidebar .widget ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.content-wrapper .sidebar .widget ul li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.content-wrapper .sidebar .widget ul li:last-child {
+  border-bottom: none;
+}
+.content-wrapper .sidebar .widget ul li a {
+  color: #3a4750;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+}
+.content-wrapper .sidebar .widget ul li a:hover {
+  color: #3498db;
+}
+.content-wrapper .sidebar .widget ul li a .count {
+  display: inline-block;
+  background: #f0f0f0;
+  font-size: 0.8rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  color: #64748b;
+  margin-left: 0.5rem;
+}
+.content-wrapper .sidebar .widget.widget_search .search-form {
+  display: flex;
+}
+.content-wrapper .sidebar .widget.widget_search .search-form label {
+  flex: 1;
+}
+.content-wrapper .sidebar .widget.widget_search .search-form .search-field {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px 0 0 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+}
+.content-wrapper .sidebar .widget.widget_search .search-form .search-field:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+.content-wrapper .sidebar .widget.widget_search .search-form .search-submit {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  font-family: "Poppins", sans-serif;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.content-wrapper .sidebar .widget.widget_search .search-form .search-submit:hover {
+  background-color: #2980b9;
+}
+.content-wrapper .sidebar .widget.widget_tag_cloud .tagcloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.content-wrapper .sidebar .widget.widget_tag_cloud .tagcloud a {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-radius: 20px;
+  font-size: 0.9rem !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.content-wrapper .sidebar .widget.widget_tag_cloud .tagcloud a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+.content-wrapper .sidebar .widget.widget_calendar table {
+  width: 100%;
+}
+.content-wrapper .sidebar .widget.widget_calendar table caption {
+  padding: 0.5rem 0;
+  font-weight: 600;
+  color: #2c3e50;
+}
+.content-wrapper .sidebar .widget.widget_calendar table th, .content-wrapper .sidebar .widget.widget_calendar table td {
+  text-align: center;
+  padding: 0.3rem;
+}
+.content-wrapper .sidebar .widget.widget_calendar table tbody td a {
+  display: block;
+  background: #3498db;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+}
+.content-wrapper .sidebar .widget.widget_calendar table tfoot a {
+  color: #3498db;
+  text-decoration: none;
+}
+.content-wrapper .sidebar .widget.widget_calendar table tfoot a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+  .content-wrapper .sidebar {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.post-pagination {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f0f0f0;
+  text-align: center;
+}
+.post-pagination .page-numbers {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0 0.25rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  color: #3a4750;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.post-pagination .page-numbers:hover {
+  background-color: #f8fafc;
+}
+.post-pagination .page-numbers.current {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.single-posts {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.single-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.single-page h1 {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #2c3e50;
+  font-weight: 700;
+}
+.single-page .post-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #34495e;
+  font-family: "Merriweather", Georgia, serif;
+}
+.single-page .post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+.single-page .post-content p {
+  margin-bottom: 1.2rem;
+}
+.single-page .post-meta {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 2rem;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.single-page .post-meta span {
+  margin-right: 1rem;
+}
+.single-page .post-meta span:last-child {
+  margin-right: 0;
+}
+.single-page .comments {
+  margin-top: 3rem;
+  border-top: 1px solid #eaeaea;
+}
+.single-page .comments .comments-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+.single-page .comments .comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.single-page .comments .comment-list .comment {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.single-page .comments .comment-list .comment:last-child {
+  border-bottom: none;
+}
+.single-page .comments .comment-list .comment .comment-body {
+  position: relative;
+}
+.single-page .comments .comment-list .comment .comment-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.single-page .comments .comment-list .comment .comment-author img.avatar {
+  border-radius: 50%;
+  margin-right: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.single-page .comments .comment-list .comment .comment-author .fn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #2c3e50;
+  font-style: normal;
+}
+.single-page .comments .comment-list .comment .comment-author .fn a {
+  color: inherit;
+  text-decoration: none;
+}
+.single-page .comments .comment-list .comment .comment-author .fn a:hover {
+  color: #3498db;
+}
+.single-page .comments .comment-list .comment .comment-author .says {
+  display: none;
+}
+.single-page .comments .comment-list .comment .comment-metadata {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+.single-page .comments .comment-list .comment .comment-metadata a {
+  color: inherit;
+  text-decoration: none;
+}
+.single-page .comments .comment-list .comment .comment-metadata a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+.single-page .comments .comment-list .comment .comment-metadata .edit-link {
+  margin-left: 1rem;
+}
+.single-page .comments .comment-list .comment .comment-content {
+  font-family: "Merriweather", Georgia, serif;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.single-page .comments .comment-list .comment .comment-content p:last-child {
+  margin-bottom: 0;
+}
+.single-page .comments .comment-list .comment .comment-content a {
+  color: #3498db;
+  text-decoration: none;
+}
+.single-page .comments .comment-list .comment .comment-content a:hover {
+  text-decoration: underline;
+}
+.single-page .comments .comment-list .comment .reply {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+}
+.single-page .comments .comment-list .comment .reply a {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.single-page .comments .comment-list .comment .reply a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+.single-page .comments .comment-list .comment .children {
+  list-style: none;
+  padding: 1.5rem 0 0 2rem;
+  margin: 1.5rem 0 0 0;
+  border-left: 2px solid #eaeaea;
+}
+.single-page .comments .comment-list .comment .children .comment {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.single-page .comments .comment-list .comment .children .comment:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.single-page .comments .comment-respond {
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border-radius: 12px;
+}
+.single-page .comments .comment-respond .comment-reply-title {
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+.single-page .comments .comment-respond .comment-reply-title a {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-left: 1rem;
+  font-weight: normal;
+}
+.single-page .comments .comment-respond .comment-reply-title a:hover {
+  color: #3498db;
+}
+.single-page .comments .comment-respond .logged-in-as {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #64748b;
+}
+.single-page .comments .comment-respond .logged-in-as a {
+  color: #3498db;
+}
+.single-page .comments .comment-respond .logged-in-as a:hover {
+  text-decoration: underline;
+}
+.single-page .comments .comment-respond .comment-form {
+  display: grid;
+  gap: 1.5rem;
+}
+.single-page .comments .comment-respond .comment-form p {
+  margin: 0;
+}
+.single-page .comments .comment-respond .comment-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #334155;
+}
+.single-page .comments .comment-respond .comment-form .comment-notes {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+.single-page .comments .comment-respond .comment-form .comment-form-cookies-consent {
+  display: flex;
+  align-items: center;
+}
+.single-page .comments .comment-respond .comment-form .comment-form-cookies-consent input {
+  margin-right: 0.5rem;
+  width: auto;
+}
+.single-page .comments .comment-respond .comment-form .comment-form-cookies-consent label {
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+.single-page .comments .comment-respond .comment-form input, .single-page .comments .comment-respond .comment-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #334155;
+  transition: all 0.2s ease;
+}
+.single-page .comments .comment-respond .comment-form input:focus, .single-page .comments .comment-respond .comment-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+.single-page .comments .comment-respond .comment-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+.single-page .comments .comment-respond .comment-form .form-submit {
+  margin-top: 0.5rem;
+}
+.single-page .comments .comment-respond .comment-form .form-submit input[type=submit] {
+  width: auto;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+}
+.single-page .comments .comment-respond .comment-form .form-submit input[type=submit]:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+.single-page .comments .comment-navigation {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.single-page .comments .comment-navigation .nav-previous a, .single-page .comments .comment-navigation .nav-next a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+.single-page .comments .comment-navigation .nav-previous a:hover, .single-page .comments .comment-navigation .nav-next a:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+.single-page .comments .no-comments {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 2rem;
 }
