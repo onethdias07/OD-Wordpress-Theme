@@ -1,4 +1,18 @@
-@function get-vw($target) {
-  $vw-context: 1920; // your design width
-  @return ($target / $vw-context) * 100vw;
+// Import Sass modules
+@use "sass:math";
+@use "sass:string";
+@use "sass:meta";
+
+// Function to convert pixel values to vw units
+@function get-vw($pixel-value) {
+  // Extract the numeric value from pixel string
+  $numeric-value: $pixel-value;
+  
+  @if meta.type-of($pixel-value) == string {
+    // Remove 'px' if present
+    $numeric-value: math.div(string.slice($pixel-value, 1, string.length($pixel-value) - 2), 1);
+  }
+  
+  $viewport-width: 1920;
+  @return #{math.div($numeric-value, $viewport-width) * 100}vw;
 }

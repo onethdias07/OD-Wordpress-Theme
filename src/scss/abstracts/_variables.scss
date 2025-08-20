@@ -1,18 +1,24 @@
-// Color variables
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$success-color: #28a745;
-$danger-color: #dc3545;
-$warning-color: #ffc107;
-$info-color: #17a2b8;
+// Color variables - Black and white theme
+$primary-color: #000000;
+$secondary-color: #333333;
+$success-color: #444444;
+$danger-color: #222222;
+$warning-color: #888888;
+$info-color: #555555;
 $light-color: #f8f9fa;
-$dark-color: #343a40;
+$dark-color: #111111;
 
 // Typography
-$base-font-family: 'Arial', sans-serif;
-$heading-font-family: 'Helvetica', sans-serif;
+$base-font-family: 'Nunito', sans-serif;
+$heading-font-family: 'Bebas Neue', sans-serif;
 $base-font-size: 16px;
-$base-line-height: 1.5;
+$base-line-height: 1.6;
+$text-color: #000000;
+$heading-color: #000000;
+$background-color: #ffffff;
+$light-gray: #f8f8f8;
+$medium-gray: #e0e0e0;
+$dark-gray: #666666;
 
 // Spacing
 $spacing-unit: 1rem;

@@ -1,115 +1,225 @@
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap');
+// Import Sass modules
+@use "../abstracts/variables" as vars;
+@use "../abstracts/functions" as func;
 
-// Base typography styles
+// Base typography styles - using Fontshare fonts
 html {
-  font-size: 16px;
+  font-size: vars.$base-font-size;
 }
 
 body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  color: #3a4750;
+  font-family: 'Nunito', sans-serif;
+  line-height: vars.$base-line-height;
+  color: vars.$text-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: vars.$background-color;
 }
 
+// Responsive font sizes using vw for larger screens
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Merriweather', Georgia, serif;
+  font-family: 'Bebas Neue', sans-serif;
   margin-top: 0;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  margin-bottom: func.get-vw(16px);
   line-height: 1.3;
-  color: #2c3e50;
+  color: vars.$heading-color;
+  letter-spacing: 0.5px;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: func.get-vw(48px);
   
-  @media (max-width: 768px) {
-    font-size: 2rem;
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 2.5rem;
   }
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: func.get-vw(40px);
   
-  @media (max-width: 768px) {
-    font-size: 1.7rem;
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 2rem;
   }
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: func.get-vw(32px);
   
-  @media (max-width: 768px) {
-    font-size: 1.5rem;
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1.75rem;
   }
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: func.get-vw(28px);
   
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1.5rem;
   }
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: func.get-vw(24px);
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1.5rem;
+  }
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: func.get-vw(20px);
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1.25rem;
+  }
 }
 
 p {
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: func.get-vw(24px);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: func.get-vw(18px);
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 a {
-  color: #3498db;
+  color: vars.$primary-color;
   text-decoration: none;
   transition: color 0.2s ease;
   
   &:hover {
-    color: #2980b9;
+    color: vars.$secondary-color;
   }
 }
 
-// Article content typography
-article {
-  font-family: 'Merriweather', Georgia, serif;
+button, 
+.button,
+input[type="button"],
+input[type="submit"] {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: func.get-vw(18px);
+  background-color: vars.$primary-color;
+  color: vars.$background-color;
+  border: none;
   
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  &:hover {
+    background-color: vars.$secondary-color;
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1rem;
   }
 }
 
 // Special text styles
 .lead {
-  font-size: 1.25rem;
+  font-size: func.get-vw(20px);
   font-weight: 300;
   line-height: 1.5;
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1.25rem;
+  }
 }
 
 .small {
-  font-size: 0.875rem;
+  font-size: func.get-vw(14px);
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 0.875rem;
+  }
 }
 
 .text-muted {
-  color: #7f8c8d;
+  color: vars.$dark-gray;
 }
 
 blockquote {
-  margin: 0 0 1.5rem;
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #3498db;
-  background-color: #f8fafc;
+  margin: 0 0 func.get-vw(24px);
+  padding: func.get-vw(16px) func.get-vw(24px);
+  border-left: 4px solid vars.$primary-color;
+  background-color: vars.$light-gray;
   font-style: italic;
+  font-family: 'Nunito', sans-serif;
+  font-size: func.get-vw(18px);
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1rem;
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.5rem;
+  }
 }
 
+// Code formatting
 code, pre {
-  font-family: 'Source Code Pro', Consolas, Monaco, 'Andale Mono', monospace;
+  font-family: monospace;
+  background-color: vars.$light-gray;
+  color: vars.$primary-color;
+}
+
+// Form elements
+input, textarea, select {
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid vars.$medium-gray;
+  color: vars.$text-color;
+  
+  &:focus {
+    border-color: vars.$primary-color;
+    outline: none;
+  }
+}
+
+// Navigation
+.main-navigation {
+  ul li a {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: func.get-vw(16px);
+    color: vars.$text-color;
+    
+    &:hover {
+      color: vars.$secondary-color;
+    }
+    
+    @media (max-width: vars.$breakpoint-medium) {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Post meta
+.post-meta {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: func.get-vw(14px);
+  color: vars.$dark-gray;
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 0.875rem;
+  }
+}
+
+// Call to action elements
+.cta, 
+.btn,
+.wp-block-button__link {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: func.get-vw(18px);
+  background-color: vars.$primary-color;
+  color: white;
+  
+  &:hover {
+    background-color: vars.$secondary-color;
+  }
+  
+  @media (max-width: vars.$breakpoint-medium) {
+    font-size: 1rem;
+  }
 }

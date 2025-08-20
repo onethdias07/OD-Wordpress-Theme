@@ -1,24 +1,24 @@
 // Main SCSS file that imports all components
 
-// Abstracts
-@import 'scss/abstracts/variables';
-@import 'scss/abstracts/functions';
-@import 'scss/abstracts/mixins';
+// Use modern Sass module system
+@use 'scss/abstracts/variables';
+@use 'scss/abstracts/functions';
+@use 'scss/abstracts/mixins';
 
 // Base styles
-@import 'scss/base/reset';
-@import 'scss/base/typography';
+@use 'scss/base/reset';
+@use 'scss/base/typography';
 
 // Layout
-@import 'scss/layout/header';
-@import 'scss/layout/footer';
+@use 'scss/layout/header';
+@use 'scss/layout/footer';
 
 // Components
-@import 'scss/components/buttons';
-@import 'scss/components/forms';
+@use 'scss/components/buttons';
+@use 'scss/components/forms';
 
 // Pages
-@import 'scss/pages/home';
-@import 'scss/pages/archive';
-@import 'scss/pages/single';
-@import 'scss/pages/search';
+@use 'scss/pages/home';
+@use 'scss/pages/archive';
+@use 'scss/pages/single';
+@use 'scss/pages/search';

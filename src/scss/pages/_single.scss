@@ -1,594 +1,130 @@
-// Add this to the top of your single.scss file
-.content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+// Archives Page - Minimalist Design
+.archive {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  gap: 2rem;
+  font-family: 'Arial', sans-serif;
+  color: #333;
   
-  // Main content area
-  .content-area {
-    flex: 1;
-    min-width: 0; // Fix for flexbox overflowing
+  // Archive header
+  .archive-header {
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eaeaea;
     
-    .single-page {
-      margin: 0; // Reset margin since we're using the wrapper
+    .archive-title {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .archive-description {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
     }
   }
   
-  // Sidebar styling
-  .sidebar {
-    width: 300px;
-
-    li{
-        list-style: none;
+  // Archive content
+  .archive-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    
+    article {
+      background: #fff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      }
+      
+      .entry-header {
+        margin-bottom: 1rem;
+        
+        .entry-title {
+          font-size: 1.5rem;
+          font-weight: 400;
+          margin-bottom: 0.5rem;
+          
+          a {
+            color: #333;
+            text-decoration: none;
+            
+            &:hover {
+              color: #666;
+            }
+          }
+        }
+        
+        .entry-meta {
+          font-size: 0.875rem;
+          color: #999;
+          
+          span {
+            margin-right: 1rem;
+          }
+        }
+      }
+      
+      .entry-content {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 1rem;
+      }
+      
+      .entry-footer {
+        font-size: 0.85rem;
+        color: #999;
+      }
+    }
+  }
+  
+  // Pagination
+  .pagination {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      
+      a, span {
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #333;
+        border: 1px solid transparent;
+        
+        &:hover {
+          border-color: #eaeaea;
+        }
+        
+        &.current {
+          background-color: #f9f9f9;
+          border-color: #eaeaea;
+        }
+      }
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .archive-content {
+      grid-template-columns: 1fr;
     }
     
-    // Widget general styling
-    .widget {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      padding: 1.5rem;
+    .archive-header {
       margin-bottom: 2rem;
       
-      &:last-child {
-        margin-bottom: 0;
-      }
-      
-      .widget-title {
-        font-family: 'Merriweather', Georgia, serif;
-        font-size: 1.4rem;
-        margin-bottom: 1.2rem;
-        color: #2c3e50;
-        padding-bottom: 0.8rem;
-        border-bottom: 2px solid #f0f0f0;
-      }
-      
-      // Lists in widgets (categories, recent posts, etc.)
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        
-        li {
-          padding: 0.6rem 0;
-          border-bottom: 1px solid #f0f0f0;
-          
-          &:last-child {
-            border-bottom: none;
-          }
-          
-          a {
-            color: #3a4750;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            display: inline-block;
-            
-            &:hover {
-              color: #3498db;
-            }
-            
-            // Count bubbles (used in categories widget)
-            .count {
-              display: inline-block;
-              background: #f0f0f0;
-              font-size: 0.8rem;
-              padding: 0.15rem 0.5rem;
-              border-radius: 20px;
-              color: #64748b;
-              margin-left: 0.5rem;
-            }
-          }
-        }
-      }
-
-      
-      // Search widget styling
-      &.widget_search {
-        .search-form {
-          display: flex;
-          
-          label {
-            flex: 1;
-          }
-          
-          .search-field {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px 0 0 6px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            
-            &:focus {
-              outline: none;
-              border-color: #3498db;
-              box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            }
-          }
-          
-          .search-submit {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 0 1rem;
-            font-family: 'Poppins', sans-serif;
-            border-radius: 0 6px 6px 0;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            
-            &:hover {
-              background-color: #2980b9;
-            }
-          }
-        }
-      }
-      
-      // Tag cloud widget
-      &.widget_tag_cloud {
-        .tagcloud {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-          
-          a {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background-color: #f1f5f9;
-            color: #64748b;
-            border-radius: 20px;
-            font-size: 0.9rem !important;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            
-            &:hover {
-              background-color: #3498db;
-              color: #fff;
-            }
-          }
-        }
-      }
-      
-      // Calendar widget
-      &.widget_calendar {
-        table {
-          width: 100%;
-          
-          caption {
-            padding: 0.5rem 0;
-            font-weight: 600;
-            color: #2c3e50;
-          }
-          
-          th, td {
-            text-align: center;
-            padding: 0.3rem;
-          }
-          
-          tbody td a {
-            display: block;
-            background: #3498db;
-            color: #fff;
-            border-radius: 50%;
-            text-decoration: none;
-          }
-          
-          tfoot a {
-            color: #3498db;
-            text-decoration: none;
-            
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
+      .archive-title {
+        font-size: 1.75rem;
       }
     }
   }
-  
-  // Responsive layout
-  @media (max-width: 768px) {
-    flex-direction: column;
-    
-    .sidebar {
-      width: 100%;
-      margin-top: 2rem;
-    }
-  }
-}
-
-// Style post pagination
-.post-pagination {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #f0f0f0;
-  text-align: center;
-  
-  .page-numbers {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    margin: 0 0.25rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 4px;
-    color: #3a4750;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    
-    &:hover {
-      background-color: #f8fafc;
-    }
-    
-    &.current {
-      background-color: #3498db;
-      color: white;
-      border-color: #3498db;
-    }
-  }
-}
-
-// Modify the single post to work within the new layout
-.single-posts {
-  max-width: none; // Remove max-width constraint since it's now handled by the wrapper
-  margin: 0;
-  padding: 0;
-}
-
-.single-page{
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-
-    h1 {
-        font-family: 'Merriweather', Georgia, serif;
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        text-align: center;
-        color: #2c3e50;
-        font-weight: 700;
-    }
-
-    .post-content {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #34495e;
-        font-family: 'Merriweather', Georgia, serif;
-
-        img {
-            max-width: 100%;
-            height: auto;
-            margin: 1.5rem 0;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-        }
-    }
-
-    .post-meta {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-top: 2rem;
-        font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-
-        span {
-            margin-right: 1rem;
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-    }
-
-    // Comments styling
-    .comments {
-      margin-top: 3rem;
-      border-top: 1px solid #eaeaea;
-      
-      .comments-title {
-        font-family: 'Merriweather', Georgia, serif;
-        font-size: 1.8rem;
-        margin-bottom: 2rem;
-        color: #2c3e50;
-      }
-      
-      .comment-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        
-        .comment {
-          margin-bottom: 2rem;
-          padding-bottom: 2rem;
-          border-bottom: 1px solid #f0f0f0;
-          
-          &:last-child {
-            border-bottom: none;
-          }
-          
-          .comment-body {
-            position: relative;
-          }
-          
-          .comment-author {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            
-            img.avatar {
-              border-radius: 50%;
-              margin-right: 1rem;
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            }
-            
-            .fn {
-              font-family: 'Poppins', sans-serif;
-              font-weight: 600;
-              color: #2c3e50;
-              font-style: normal;
-              
-              a {
-                color: inherit;
-                text-decoration: none;
-                
-                &:hover {
-                  color: #3498db;
-                }
-              }
-            }
-            
-            .says {
-              display: none;
-            }
-          }
-          
-          .comment-metadata {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.85rem;
-            color: #94a3b8;
-            margin-bottom: 1rem;
-            
-            a {
-              color: inherit;
-              text-decoration: none;
-              
-              &:hover {
-                color: #3498db;
-                text-decoration: underline;
-              }
-            }
-            
-            .edit-link {
-              margin-left: 1rem;
-            }
-          }
-          
-          .comment-content {
-            font-family: 'Merriweather', Georgia, serif;
-            color: #475569;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            
-            p:last-child {
-              margin-bottom: 0;
-            }
-            
-            a {
-              color: #3498db;
-              text-decoration: none;
-              
-              &:hover {
-                text-decoration: underline;
-              }
-            }
-          }
-          
-          .reply {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            
-            a {
-              display: inline-block;
-              padding: 0.4rem 1rem;
-              background-color: #f1f5f9;
-              color: #64748b;
-              border-radius: 20px;
-              text-decoration: none;
-              transition: all 0.2s ease;
-              
-              &:hover {
-                background-color: #3498db;
-                color: #fff;
-              }
-            }
-          }
-          
-          // Nested comments (replies)
-          .children {
-            list-style: none;
-            padding: 1.5rem 0 0 2rem;
-            margin: 1.5rem 0 0 0;
-            border-left: 2px solid #eaeaea;
-            
-            .comment {
-              padding-bottom: 1.5rem;
-              margin-bottom: 1.5rem;
-              
-              &:last-child {
-                padding-bottom: 0;
-                margin-bottom: 0;
-              }
-            }
-          }
-        }
-      }
-      
-      .comment-respond {
-        margin-top: 3rem;
-        padding: 2rem;
-        background-color: #f8fafc;
-        border-radius: 12px;
-        
-        .comment-reply-title {
-          font-family: 'Merriweather', Georgia, serif;
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-          color: #2c3e50;
-          
-          a {
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-left: 1rem;
-            font-weight: normal;
-            
-            &:hover {
-              color: #3498db;
-            }
-          }
-        }
-        
-        .logged-in-as {
-          font-size: 0.9rem;
-          margin-bottom: 1.5rem;
-          color: #64748b;
-          
-          a {
-            color: #3498db;
-            
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-        
-        .comment-form {
-          display: grid;
-          gap: 1.5rem;
-          
-          p {
-            margin: 0;
-          }
-          
-          label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            color: #334155;
-          }
-          
-          .comment-notes {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 1rem;
-          }
-          
-          .comment-form-cookies-consent {
-            display: flex;
-            align-items: center;
-            
-            input {
-              margin-right: 0.5rem;
-              width: auto;
-            }
-            
-            label {
-              margin-bottom: 0;
-              font-weight: normal;
-              font-size: 0.9rem;
-            }
-          }
-          
-          input, textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            background-color: #fff;
-            color: #334155;
-            transition: all 0.2s ease;
-            
-            &:focus {
-              outline: none;
-              border-color: #3498db;
-              box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-            }
-          }
-          
-          textarea {
-            min-height: 150px;
-            resize: vertical;
-          }
-          
-          .form-submit {
-            margin-top: 0.5rem;
-            
-            input[type="submit"] {
-              width: auto;
-              background-color: #3498db;
-              color: white;
-              border: none;
-              padding: 0.8rem 2rem;
-              font-family: 'Poppins', sans-serif;
-              font-weight: 500;
-              font-size: 1rem;
-              cursor: pointer;
-              transition: all 0.3s ease;
-              border-radius: 30px;
-              
-              &:hover {
-                background-color: #2980b9;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
-              }
-            }
-          }
-        }
-      }
-      
-      // Comment navigation
-      .comment-navigation {
-        margin: 2rem 0;
-        display: flex;
-        justify-content: space-between;
-        
-        .nav-previous, .nav-next {
-          a {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background-color: #f1f5f9;
-            color: #64748b;
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-            
-            &:hover {
-              background-color: #3498db;
-              color: #fff;
-            }
-          }
-        }
-      }
-      
-      // Empty comments state
-      .no-comments {
-        text-align: center;
-        padding: 2rem;
-        background-color: #f8fafc;
-        border-radius: 8px;
-        color: #64748b;
-        font-style: italic;
-        margin-top: 2rem;
-      }
-    }
 }

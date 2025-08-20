@@ -240,7 +240,7 @@ header{
     }
     
     .site-title {
-      font-family: 'Merriweather', Georgia, serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
       margin: 0;
       
@@ -278,7 +278,7 @@ header{
         }
         
         a {
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Nunito', sans-serif;
           font-size: 1rem;
           color: #334155;
           text-decoration: none;
@@ -432,7 +432,8 @@ header{
         border: 1px solid #e2e8f0;
         font-size: 0.9rem;
         transition: all 0.2s ease;
-        
+        font-family: 'Nunito', sans-serif;
+
         &:focus {
           width: 220px;
           outline: none;
