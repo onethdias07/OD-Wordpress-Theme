@@ -1231,23 +1231,48 @@ input:focus, textarea:focus, select:focus {
 }
 .archive .archive-content article {
   background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #f0f0f0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .archive .archive-content article:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+.archive .archive-content article .post-thumbnail {
+  margin: -1.5rem -1.5rem 1.5rem;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+.archive .archive-content article .post-thumbnail img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  aspect-ratio: 16/9;
+  transition: transform 0.3s ease;
+}
+.archive .archive-content article .post-thumbnail:hover img {
+  transform: scale(1.03);
 }
 .archive .archive-content article .entry-header {
   margin-bottom: 1rem;
 }
 .archive .archive-content article .entry-header .entry-title {
   font-size: 1.5rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
 }
 .archive .archive-content article .entry-header .entry-title a {
   color: #333;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 .archive .archive-content article .entry-header .entry-title a:hover {
   color: #666;
@@ -1255,19 +1280,66 @@ input:focus, textarea:focus, select:focus {
 .archive .archive-content article .entry-header .entry-meta {
   font-size: 0.875rem;
   color: #999;
+  display: flex;
+  flex-wrap: wrap;
 }
 .archive .archive-content article .entry-header .entry-meta span {
   margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.archive .archive-content article .entry-header .entry-meta span svg, .archive .archive-content article .entry-header .entry-meta span i {
+  margin-right: 0.25rem;
 }
 .archive .archive-content article .entry-content {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #555;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 .archive .archive-content article .entry-footer {
   font-size: 0.85rem;
   color: #999;
+  padding-top: 1rem;
+  border-top: 1px solid #f5f5f5;
+  margin-top: auto;
+}
+.archive .archive-content article .entry-footer .read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+}
+.archive .archive-content article .entry-footer .read-more:after {
+  content: "→";
+  margin-left: 0.25rem;
+  transition: transform 0.2s ease;
+}
+.archive .archive-content article .entry-footer .read-more:hover:after {
+  transform: translateX(3px);
+}
+.archive .archive-content article .entry-footer .tags-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.archive .archive-content article .entry-footer .tags-links a {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #f5f5f5;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #666;
+  text-decoration: none;
+}
+.archive .archive-content article .entry-footer .tags-links a:hover {
+  background: #eaeaea;
+  color: #444;
 }
 .archive .pagination {
   margin-top: 3rem;

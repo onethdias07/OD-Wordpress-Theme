@@ -49,3 +49,35 @@ function my_sidebars(){
     ));
 }
 add_action('widgets_init','my_sidebars');
+
+
+function custom_post_type(){
+
+ $args = array(
+   'labels' => array(
+       'name' => __('News'),
+       'singular_name' => __('News Item')
+   ),
+   'public' => true,
+   'has_archive' => true,
+   'rewrite' => array('slug' => 'news'),
+   'supports' => array('title', 'editor', 'thumbnail'),
+   'menu_icon' => 'dashicons-admin-site'
+ );
+ register_post_type('news', $args);
+}
+add_action('init','custom_post_type');
+
+function register_custom_taxonomy() {
+    $args = array(
+        'labels' => array(
+            'name' => __('News Categories'),
+            'singular_name' => __('News Category')
+        ),
+        'public' => true,
+        'hierarchical' => true,
+        'rewrite' => array('slug' => 'news-category'),
+    );
+    register_taxonomy('news_category', array('news'), $args);
+}
+add_action('init', 'register_custom_taxonomy');
