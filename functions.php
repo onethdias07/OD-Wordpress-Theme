@@ -81,3 +81,9 @@ function register_custom_taxonomy() {
     register_taxonomy('news_category', array('news'), $args);
 }
 add_action('init', 'register_custom_taxonomy');
+
+
+function enqueue_custom_fonts() {
+    wp_enqueue_style('fontshare-fonts', 'https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@200,201,300,301,400,401,500,501,600,601,700,701,800,801,1,2&f[]=zodiak@100,101,300,301,400,401,700,701,800,801,900,901,1,2&display=swap', array(), null);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');

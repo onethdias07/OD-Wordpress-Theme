@@ -5,5 +5,6 @@
     </label>
     <button type="submit" class="search-submit">
         <span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'textdomain' ); ?></span>
+        <img src="<?php echo get_template_directory_uri(); ?>/images/search.svg" alt="Search" class="search-icon" />
     </button>
 </form>

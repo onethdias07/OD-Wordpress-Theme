@@ -18,15 +18,9 @@
         <div class="container">
             <div class="header-content">
                 <div class="site-branding">
-                    <?php
-                    if (has_custom_logo()) {
-                        the_custom_logo();
-                    } else {
-                    ?>
-                        <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
-                    <?php
-                    }
-                    ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.webp" alt="<?php bloginfo('name'); ?>" class="site-logo">
+                    </a>
                 </div>
 
                 <div class="header-right">

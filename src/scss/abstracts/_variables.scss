@@ -1,27 +1,12 @@
-// Color variables - Black and white theme
-$primary-color: #000000;
-$secondary-color: #333333;
-$success-color: #444444;
-$danger-color: #222222;
-$warning-color: #888888;
-$info-color: #555555;
-$light-color: #f8f9fa;
-$dark-color: #111111;
+// Colors
+$main-text: #212121;
+$body-bg: #ffffe3;
+$card-bg: #212121;
+$card-text: #ffffe3;
 
 // Typography
-$base-font-family: 'Nunito', sans-serif;
-$heading-font-family: 'Bebas Neue', sans-serif;
-$base-font-size: 16px;
-$base-line-height: 1.6;
-$text-color: #000000;
-$heading-color: #000000;
-$background-color: #ffffff;
-$light-gray: #f8f8f8;
-$medium-gray: #e0e0e0;
-$dark-gray: #666666;
-
-// Spacing
-$spacing-unit: 1rem;
+$font-secondary: 'Plus Jakarta Sans', sans-serif;
+$font-primary: 'Zodiak', serif;
 
 // Breakpoints
 $breakpoint-small: 576px;
