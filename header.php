@@ -3,9 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Add Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Add Fontshare Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=bebas-neue@400&f[]=nunito@200,201,300,301,400,401,500,501,600,601,700,701,800,801,900,901,1,2&display=swap" rel="stylesheet">
     <title><?php the_title(); ?></title>
 
@@ -17,12 +15,6 @@
     <header class="site-header">
         <div class="container">
             <div class="header-content">
-                <div class="site-branding">
-                    <a href="<?php echo esc_url(home_url('/')); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.webp" alt="<?php bloginfo('name'); ?>" class="site-logo">
-                    </a>
-                </div>
-
                 <div class="header-right">
                     <nav class="main-navigation">
                         <?php

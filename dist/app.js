@@ -7,7 +7,120 @@
   \********************/
 /***/ (() => {
 
-console.log('Hello, World!');
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+// Improved Sticky Header with smooth transitions
+document.addEventListener('DOMContentLoaded', function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  var isScrolled = false;
+  var ticking = false;
+  var scrollThreshold = 50;
+
+  // Add initial state to prevent flash
+  header.style.transform = 'translateY(0)';
+  function updateHeader() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var shouldBeScrolled = scrollTop > scrollThreshold;
+    if (shouldBeScrolled !== isScrolled) {
+      isScrolled = shouldBeScrolled;
+
+      // Force browser reflow before transition
+      header.offsetHeight;
+      if (isScrolled) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  }
+
+  // Initial check
+  updateHeader();
+
+  // Use passive event listener for better performance
+  window.addEventListener('scroll', onScroll, {
+    passive: true
+  });
+
+  // Handle resize events
+  window.addEventListener('resize', updateHeader, {
+    passive: true
+  });
+});
+
+// Enhanced Search Form Interactions
+document.addEventListener('DOMContentLoaded', function () {
+  var searchForm = document.querySelector('.search-form');
+  var searchField = document.querySelector('.search-field');
+  var searchButton = document.querySelector('.search-form button');
+  if (!searchForm || !searchField) return;
+
+  // Debounced focus handling
+  var focusTimeout;
+  searchField.addEventListener('focus', function () {
+    clearTimeout(focusTimeout);
+    searchForm.classList.add('focused');
+  });
+  searchField.addEventListener('blur', function () {
+    focusTimeout = setTimeout(function () {
+      searchForm.classList.remove('focused');
+    }, 150);
+  });
+
+  // Enhanced button interactions
+  if (searchButton) {
+    searchButton.addEventListener('mouseenter', function () {
+      this.style.transform = 'scale(1.05)';
+    });
+    searchButton.addEventListener('mouseleave', function () {
+      this.style.transform = '';
+    });
+    searchButton.addEventListener('mousedown', function () {
+      this.style.transform = 'scale(0.98)';
+    });
+    searchButton.addEventListener('mouseup', function () {
+      this.style.transform = 'scale(1.05)';
+    });
+  }
+});
+
+// Navigation Link Enhancements
+document.addEventListener('DOMContentLoaded', function () {
+  var navLinks = document.querySelectorAll('.header-nav a');
+  navLinks.forEach(function (link) {
+    // Add stagger effect for hover animations
+    link.addEventListener('mouseenter', function () {
+      var siblings = _toConsumableArray(this.parentNode.parentNode.children);
+      var index = siblings.indexOf(this.parentNode);
+      siblings.forEach(function (sibling, i) {
+        if (i !== index) {
+          sibling.querySelector('a').style.transform = 'scale(0.98)';
+          sibling.querySelector('a').style.opacity = '0.7';
+        }
+      });
+    });
+    link.addEventListener('mouseleave', function () {
+      var siblings = _toConsumableArray(this.parentNode.parentNode.children);
+      siblings.forEach(function (sibling) {
+        sibling.querySelector('a').style.transform = '';
+        sibling.querySelector('a').style.opacity = '';
+      });
+    });
+  });
+});
+console.log('OD Theme loaded with modern interactions!');
 
 /***/ }),
 

@@ -1,2 +1,354 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
+
+.front-page {
+  
+  section {
+    padding: 60px 0;
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+  }
+
+  .section-title {
+    font-family: $font-primary;
+    font-size: 2.5rem;
+    color: $main-text;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+
+  .hero-section {
+    background-color: $body-bg;
+    border-bottom: 1px solid #000000;
+    padding: 80px 0;
+    
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .hero-title {
+      font-family: $font-primary;
+      font-size: 3.5rem;
+      color: $main-text;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-family: $font-secondary;
+      font-size: 1.3rem;
+      color: $main-text;
+      margin-bottom: 60px;
+      opacity: 0.8;
+    }
+    
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .feature-item {
+      background-color: $card-bg;
+      color: $card-text;
+      padding: 30px;
+      border: 1px solid #000000;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform, box-shadow, background-color;
+      
+      &:hover {
+        background-color: $card-text;
+        color: $card-bg;
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        border-color: rgba(0, 0, 0, 0.3);
+      }
+      
+      &:active {
+        transform: translateY(-1px) scale(1.005);
+        transition-duration: 0.1s;
+      }
+      
+      h3 {
+        font-family: $font-primary;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: 600;
+        transition: all 0.25s ease;
+      }
+      
+      p {
+        font-family: $font-secondary;
+        line-height: 1.6;
+        margin: 0;
+        transition: all 0.25s ease;
+      }
+    }
+  }
+
+  .skills-section {
+    background-color: $card-bg;
+    color: $card-text;
+    border-bottom: 1px solid #000000;
+    
+    .section-title {
+      color: $card-text;
+    }
+    
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .skill-card {
+      background-color: $body-bg;
+      color: $main-text;
+      padding: 40px 30px;
+      border: 1px solid #000000;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform, box-shadow, background-color;
+      
+      &:hover {
+        background-color: $main-text;
+        color: $body-bg;
+        transform: translateY(-4px) scale(1.015);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+        border-color: rgba(0, 0, 0, 0.4);
+      }
+      
+      &:active {
+        transform: translateY(-2px) scale(1.01);
+        transition-duration: 0.1s;
+      }
+      
+      h3 {
+        font-family: $font-primary;
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.25s ease;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          font-family: $font-secondary;
+          padding: 8px 0;
+          border-bottom: 1px solid rgba(33, 33, 33, 0.1);
+          transition: all 0.25s ease;
+          
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+      
+      &:hover ul li {
+        border-bottom-color: rgba(255, 255, 227, 0.2);
+      }
+    }
+  }
+
+  .portfolio-section {
+    background-color: $body-bg;
+    border-bottom: 1px solid #000000;
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .portfolio-item {
+      background-color: transparent;
+      padding: 30px;
+      border: 1px solid #000000;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform, box-shadow, background-color;
+      
+      &:hover {
+        background-color: $main-text;
+        color: $body-bg;
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        border-color: rgba(0, 0, 0, 0.3);
+      }
+      
+      &:active {
+        transform: translateY(-1px) scale(1.005);
+        transition-duration: 0.1s;
+      }
+      
+      h3 {
+        font-family: $font-primary;
+        font-size: 1.4rem;
+        color: $main-text;
+        margin-bottom: 15px;
+        font-weight: 600;
+        transition: all 0.25s ease;
+      }
+      
+      p {
+        font-family: $font-secondary;
+        color: $main-text;
+        line-height: 1.6;
+        margin: 0;
+        transition: all 0.25s ease;
+      }
+      
+      &:hover h3,
+      &:hover p {
+        color: $body-bg;
+      }
+    }
+  }
+
+  .contact-section {
+    background-color: $card-bg;
+    color: $card-text;
+    
+    .section-title {
+      color: $card-text;
+    }
+    
+    .contact-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      
+      p {
+        font-family: $font-secondary;
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        line-height: 1.6;
+      }
+    }
+    
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      font-family: $font-secondary;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid #000000;
+      transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      min-height: 50px;
+      will-change: transform, box-shadow, background-color;
+      
+      &:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+      }
+      
+      &:active {
+        transform: translateY(-1px) scale(1.005);
+        transition-duration: 0.1s;
+      }
+      
+      &.btn-primary {
+        background-color: $body-bg;
+        color: $main-text;
+        
+        &:hover {
+          background-color: $main-text;
+          color: $body-bg;
+          border-color: $main-text;
+        }
+      }
+      
+      &.btn-secondary {
+        background-color: transparent;
+        color: $card-text;
+        border-color: $card-text;
+        
+        &:hover {
+          background-color: $card-text;
+          color: $card-bg;
+          border-color: $card-text;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .hero-features {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-buttons {
+      flex-direction: column;
+      align-items: center;
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    section {
+      padding: 40px 0;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+  }
+  
+  @media (max-width: $breakpoint-small) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .skill-card,
+    .portfolio-item,
+    .feature-item {
+      padding: 20px;
+    }
+  }
+}

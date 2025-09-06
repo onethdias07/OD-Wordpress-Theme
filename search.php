@@ -23,8 +23,8 @@
         <nav class="search-pagination">
             <?php 
             echo paginate_links(array(
-                'prev_text' => '&laquo; Previous',
-                'next_text' => 'Next &raquo;',
+                'prev_text' => 'Previous',
+                'next_text' => 'Next',
                 'mid_size' => 1,
             ));
             ?>

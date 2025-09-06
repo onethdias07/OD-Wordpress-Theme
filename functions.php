@@ -15,25 +15,17 @@ function od_theme_scripts() {
 
 add_action('wp_enqueue_scripts', 'od_theme_scripts');
 
-
-// Theme Options
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 add_theme_support('widgets');
 
-
-
-// Menus
 register_nav_menus(array(
     'Header-Nav' => __('Header Nav', 'od-theme'),
 ));
 
-//custom image sizes
 add_image_size('blog-large', 800, 600, false);
 add_image_size('blog-small', 400, 300, true);
 
-
-//register sidebars
 function my_sidebars(){
     register_sidebar(array(
         'name'          => __('Page Sidebar'),
