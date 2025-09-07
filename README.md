@@ -4,7 +4,7 @@ A modern, secure, and responsive WordPress theme built with custom PHP, SCSS, an
 
 ![WordPress Version](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)
 ![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue.svg)
-![License](https://img.shields.io/badge/License-GPL%20v2-green.svg)
+![License](https://img.shields.io/badge/License-Free%20Use-green.svg)
 
 ## 🚀 Features
 
@@ -305,13 +305,19 @@ npm run build
 
 ## 📄 License
 
-This theme is licensed under the GPL v2 or later.
-```
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation; either version 2 of the License, or
-(at your option) any later version.
-```
+**Custom Free Use License**
+
+You can use this theme freely for any purpose, but you cannot claim ownership or redistribute it as your own work. The original author (Oneth Dias) retains full ownership and copyright of this theme.
+
+**Terms:**
+- ✅ **Free to Use**: You may use this theme for personal, commercial, or any other projects at no cost
+- ✅ **Modify**: You can customize and modify the theme to suit your needs
+- ✅ **Deploy**: You can deploy websites using this theme without restrictions
+- ❌ **No Ownership Claims**: You cannot claim this theme as your own creation
+- ❌ **No Redistribution**: You cannot redistribute, sell, or share this theme as standalone product
+- ❌ **No Rebranding**: You cannot remove author credits or rebrand as your own work
+
+**Attribution**: Please maintain the original author credits in the theme files.
 
 ## 👨‍💻 Author
 

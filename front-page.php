@@ -155,7 +155,7 @@
                 <p>Interested in custom WordPress development? Let's discuss your project requirements.</p>
                 <div class="contact-buttons">
                     <a href="/contact" class="btn btn-primary">Contact Me</a>
-                    <a href="https://github.com/onethdias07" class="btn btn-secondary" target="_blank">View GitHub</a>
+                    <a href="https://github.com/onethdias07/OD-Wordpress-Theme" class="btn btn-secondary" target="_blank">View GitHub</a>
                 </div>
             </div>
         </div>
