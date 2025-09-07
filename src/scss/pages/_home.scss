@@ -20,6 +20,20 @@
     text-align: center;
     margin-bottom: 50px;
     font-weight: 600;
+    
+    @media (max-width: $breakpoint-medium) {
+      font-size: 2.2rem;
+    }
+    
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    
+    @media (max-width: $breakpoint-small) {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
   }
 
   .hero-section {
@@ -40,6 +54,20 @@
       margin-bottom: 20px;
       font-weight: 700;
       line-height: 1.2;
+      
+      @media (max-width: $breakpoint-medium) {
+        font-size: 3rem;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 2rem;
+        line-height: 1.3;
+      }
     }
     
     .hero-subtitle {
@@ -48,6 +76,20 @@
       color: $main-text;
       margin-bottom: 60px;
       opacity: 0.8;
+      
+      @media (max-width: $breakpoint-medium) {
+        font-size: 1.2rem;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 1rem;
+        margin-bottom: 30px;
+      }
     }
     
     .hero-features {
@@ -84,6 +126,15 @@
         margin-bottom: 15px;
         font-weight: 600;
         transition: all 0.25s ease;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 1.3rem;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 1.2rem;
+          margin-bottom: 12px;
+        }
       }
       
       p {
@@ -91,6 +142,16 @@
         line-height: 1.6;
         margin: 0;
         transition: all 0.25s ease;
+        font-size: 1rem;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 0.95rem;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 0.9rem;
+          line-height: 1.7;
+        }
       }
     }
   }
@@ -108,6 +169,20 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 30px;
+      
+      @media (max-width: $breakpoint-medium) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        gap: 15px;
+      }
     }
     
     .skill-card {
@@ -118,17 +193,33 @@
       transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       will-change: transform, box-shadow, background-color;
       
+      @media (max-width: $breakpoint-tablet) {
+        padding: 35px 25px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        padding: 30px 20px;
+      }
+      
       &:hover {
         background-color: $main-text;
         color: $body-bg;
         transform: translateY(-4px) scale(1.015);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
         border-color: rgba(0, 0, 0, 0.4);
+        
+        @media (max-width: $breakpoint-small) {
+          transform: translateY(-2px) scale(1.01);
+        }
       }
       
       &:active {
         transform: translateY(-2px) scale(1.01);
         transition-duration: 0.1s;
+        
+        @media (max-width: $breakpoint-small) {
+          transform: translateY(-1px) scale(1.005);
+        }
       }
       
       h3 {
@@ -138,6 +229,16 @@
         font-weight: 600;
         text-align: center;
         transition: all 0.25s ease;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 1.4rem;
+          margin-bottom: 20px;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 1.3rem;
+          margin-bottom: 18px;
+        }
       }
       
       ul {
@@ -150,6 +251,17 @@
           padding: 8px 0;
           border-bottom: 1px solid rgba(33, 33, 33, 0.1);
           transition: all 0.25s ease;
+          font-size: 1rem;
+          
+          @media (max-width: $breakpoint-tablet) {
+            font-size: 0.95rem;
+            padding: 7px 0;
+          }
+          
+          @media (max-width: $breakpoint-small) {
+            font-size: 0.9rem;
+            padding: 6px 0;
+          }
           
           &:last-child {
             border-bottom: none;
@@ -200,6 +312,16 @@
         margin-bottom: 15px;
         font-weight: 600;
         transition: all 0.25s ease;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 1.3rem;
+          margin-bottom: 12px;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 1.2rem;
+          margin-bottom: 10px;
+        }
       }
       
       p {
@@ -208,6 +330,16 @@
         line-height: 1.6;
         margin: 0;
         transition: all 0.25s ease;
+        font-size: 1rem;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 0.95rem;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 0.9rem;
+          line-height: 1.7;
+        }
       }
       
       &:hover h3,
@@ -235,6 +367,16 @@
         font-size: 1.2rem;
         margin-bottom: 40px;
         line-height: 1.6;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 1.1rem;
+          margin-bottom: 30px;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 1rem;
+          margin-bottom: 25px;
+        }
       }
     }
     
@@ -256,6 +398,16 @@
       text-decoration: none;
       border: 1px solid #000000;
       transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 15px;
+        padding: 14px 25px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 14px;
+        padding: 12px 20px;
+      }
       min-height: 50px;
       will-change: transform, box-shadow, background-color;
       
@@ -295,6 +447,37 @@
   }
 
   @media (max-width: $breakpoint-medium) {
+    .hero-title {
+      font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+    
+    .hero-features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    section {
+      padding: 50px 0;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
     .hero-title {
       font-size: 2.5rem;
     }

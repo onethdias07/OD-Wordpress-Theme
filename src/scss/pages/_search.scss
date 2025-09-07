@@ -16,6 +16,18 @@
     max-width: 800px;
     padding: 0 20px;
     
+    @media (max-width: $breakpoint-medium) {
+      font-size: 2.2rem;
+    }
+    
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 2rem;
+    }
+    
+    @media (max-width: $breakpoint-small) {
+      font-size: 1.8rem;
+    }
+    
     .search-query {
       color: $main-text;
       font-weight: 700;
@@ -23,6 +35,10 @@
       margin-top: 10px;
       font-size: 1.1em;
       font-style: italic;
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 1em;
+      }
     }
   }
   
@@ -33,6 +49,14 @@
     color: rgba($main-text, 0.7);
     margin-bottom: 50px;
     font-weight: 500;
+    
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 1rem;
+    }
+    
+    @media (max-width: $breakpoint-small) {
+      font-size: 0.95rem;
+    }
   }
   
   .search-results-posts {
@@ -96,6 +120,14 @@
           line-height: 1.3;
           transition: color 0.25s ease;
           pointer-events: none;
+          
+          @media (max-width: $breakpoint-tablet) {
+            font-size: 1.35rem;
+          }
+          
+          @media (max-width: $breakpoint-small) {
+            font-size: 1.25rem;
+          }
         }
         
         .search-excerpt {
@@ -105,6 +137,14 @@
           line-height: 1.6;
           margin: 0;
           pointer-events: none;
+          
+          @media (max-width: $breakpoint-tablet) {
+            font-size: 0.95rem;
+          }
+          
+          @media (max-width: $breakpoint-small) {
+            font-size: 0.9rem;
+          }
         }
       }
     }
@@ -122,6 +162,14 @@
       color: rgba($main-text, 0.8);
       margin-bottom: 40px;
       line-height: 1.6;
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 1.1rem;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 1rem;
+      }
     }
     
     .search-suggestions {
@@ -138,6 +186,14 @@
         color: $main-text;
         margin: 0 0 20px;
         font-weight: 600;
+        
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 1.2rem;
+        }
+        
+        @media (max-width: $breakpoint-small) {
+          font-size: 1.1rem;
+        }
       }
       
       ul {
@@ -152,6 +208,14 @@
           margin-bottom: 10px;
           padding-left: 25px;
           position: relative;
+          
+          @media (max-width: $breakpoint-tablet) {
+            font-size: 0.95rem;
+          }
+          
+          @media (max-width: $breakpoint-small) {
+            font-size: 0.9rem;
+          }
           
           &::before {
             content: '•';
@@ -289,6 +353,23 @@
   }
   
   @media (max-width: $breakpoint-medium) {
+    padding: 70px 0;
+    
+    .page-title {
+      font-size: 2.2rem;
+      
+      .search-query {
+        font-size: 1em;
+      }
+    }
+    
+    .search-results-posts {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
     padding: 60px 0;
     
     .page-title {

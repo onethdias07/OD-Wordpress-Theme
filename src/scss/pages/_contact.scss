@@ -22,6 +22,18 @@
       margin: 0;
       font-weight: 700;
       line-height: 1.2;
+      
+      @media (max-width: $breakpoint-medium) {
+        font-size: 3rem;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2.5rem;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 2rem;
+      }
     }
   }
   
@@ -42,6 +54,18 @@
       text-align: center;
       margin-bottom: 50px;
       font-weight: 600;
+      
+      @media (max-width: $breakpoint-medium) {
+        font-size: 2.2rem;
+      }
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2rem;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 1.8rem;
+      }
     }
   }
   
@@ -73,6 +97,14 @@
       font-size: 1rem;
       margin-bottom: 8px;
       display: block;
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 0.95rem;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 0.9rem;
+      }
     }
     
     input[type="text"],
@@ -90,6 +122,15 @@
       transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       outline: none;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 14px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 14px;
+        padding: 14px 18px;
+      }
       
       &::placeholder {
         color: rgba($main-text, 0.6);
@@ -148,6 +189,19 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 15px;
+        padding: 16px 35px;
+        min-width: 180px;
+      }
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 14px;
+        padding: 14px 30px;
+        min-width: 160px;
+        min-height: 50px;
+      }
       
       &::before {
         content: '';
@@ -314,6 +368,10 @@
       font-size: 14px;
       margin-top: 5px;
       font-family: $font-secondary;
+      
+      @media (max-width: $breakpoint-small) {
+        font-size: 13px;
+      }
     }
     
     .wpcf7-form-control.wpcf7-not-valid {
@@ -323,6 +381,25 @@
   }
   
   @media (max-width: $breakpoint-medium) {
+    .page-header {
+      padding: 70px 0 50px;
+      
+      h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    .contact-form-section {
+      padding: 70px 0;
+      
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 45px;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
     .page-header {
       padding: 60px 0 40px;
       

@@ -25,13 +25,21 @@
                         ));
                         ?>
                     </nav>
-
+                    
                     <div class="header-search">
                         <?php get_search_form(); ?>
                     </div>
+
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
                 </div>
             </div>
         </div>
+        
+        <div class="mobile-menu-overlay"></div>
     </header>
     
     <div class="site-content">

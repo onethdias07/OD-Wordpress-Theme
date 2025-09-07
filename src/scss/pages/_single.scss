@@ -1,2 +1,533 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/functions' as *;
+
+.single-page {
+  min-height: calc(100vh - 120px);
+  background-color: $body-bg;
+  padding: 80px 0;
+  
+  .single-posts {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    
+    .single-post {
+      background-color: $body-bg;
+      border: 2px solid rgba($main-text, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 1;
+      }
+      
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+      
+      header {
+        padding: 40px 40px 30px;
+        border-bottom: 1px solid rgba($main-text, 0.1);
+        background: linear-gradient(135deg, rgba($main-text, 0.02) 0%, transparent 100%);
+        
+        h1 {
+          font-family: $font-primary;
+          font-size: 2.5rem;
+          color: $main-text;
+          margin: 0;
+          font-weight: 700;
+          line-height: 1.2;
+          text-align: center;
+        }
+        
+        meta {
+          display: none;
+        }
+      }
+      
+      .featured-image {
+        width: 100%;
+        max-height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba($main-text, 0.05);
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.25s ease;
+          
+          &:hover {
+            transform: scale(1.02);
+          }
+        }
+        
+        &:empty {
+          display: none;
+        }
+      }
+      
+      .post-info {
+        padding: 30px 40px;
+        border-bottom: 1px solid rgba($main-text, 0.1);
+        background-color: rgba($main-text, 0.02);
+        
+        .post-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          
+          > div {
+            font-family: $font-secondary;
+            flex: 1;
+            min-width: 300px;
+            
+            p {
+              margin: 0;
+              font-size: 0.9rem;
+              color: rgba($main-text, 0.7);
+              display: flex;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 8px;
+              
+              strong,
+              span {
+                color: $main-text;
+                font-weight: 600;
+              }
+            }
+            
+            a {
+              color: rgba($main-text, 0.8);
+              text-decoration: none;
+              font-weight: 500;
+              transition: all 0.25s ease;
+              display: inline-block;
+              
+              &:hover {
+                color: $main-text;
+                text-decoration: underline;
+              }
+              
+              &:not(:last-child)::after {
+                content: ', ';
+                color: rgba($main-text, 0.5);
+                margin-right: 4px;
+              }
+            }
+          }
+          
+          .author {
+            p::before {
+              content: '👤 ';
+              margin-right: 5px;
+            }
+          }
+          
+          .date {
+            p::before {
+              content: '📅 ';
+              margin-right: 5px;
+            }
+          }
+          
+          .categories {
+            p::before {
+              content: '📂 ';
+              margin-right: 5px;
+            }
+          }
+          
+          .tags {
+            p::before {
+              content: '🏷️ ';
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      
+      .single-content {
+        padding: 40px;
+        font-family: $font-secondary;
+        line-height: 1.8;
+        color: rgba($main-text, 0.85);
+        
+        p {
+          margin: 0 0 1.5rem;
+          font-size: 1.1rem;
+          
+          @media (max-width: $breakpoint-medium) {
+            font-size: 1.05rem;
+          }
+          
+          @media (max-width: $breakpoint-tablet) {
+            font-size: 1rem;
+            margin-bottom: 1.3rem;
+          }
+          
+          @media (max-width: $breakpoint-small) {
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+          }
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+          font-family: $font-primary;
+          color: $main-text;
+          margin: 2rem 0 1rem;
+          font-weight: 600;
+          
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        
+        h2 {
+          font-size: 1.8rem;
+          border-bottom: 2px solid rgba($main-text, 0.1);
+          padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+          font-size: 1.5rem;
+        }
+        
+        h4 {
+          font-size: 1.3rem;
+        }
+        
+        ul, ol {
+          margin: 1.5rem 0;
+          padding-left: 2rem;
+          
+          li {
+            margin-bottom: 0.5rem;
+          }
+        }
+        
+        blockquote {
+          margin: 2rem 0;
+          padding: 1.5rem 2rem;
+          border-left: 4px solid $main-text;
+          background-color: rgba($main-text, 0.05);
+          font-style: italic;
+          
+          p {
+            margin: 0;
+          }
+        }
+        
+        code {
+          background-color: rgba($main-text, 0.1);
+          padding: 0.2rem 0.4rem;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9rem;
+        }
+        
+        pre {
+          background-color: rgba($main-text, 0.05);
+          padding: 1.5rem;
+          overflow-x: auto;
+          margin: 1.5rem 0;
+          
+          code {
+            background: none;
+            padding: 0;
+          }
+        }
+        
+        img {
+          max-width: 100%;
+          height: auto;
+          margin: 1.5rem 0;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        a {
+          color: $main-text;
+          font-weight: 500;
+          text-decoration: underline;
+          transition: all 0.25s ease;
+          
+          &:hover {
+            color: rgba($main-text, 0.8);
+            text-decoration: none;
+          }
+        }
+      }
+      
+      .comments {
+        padding: 40px;
+        border-top: 1px solid rgba($main-text, 0.1);
+        background-color: rgba($main-text, 0.02);
+        
+        .comment-respond {
+          h3 {
+            font-family: $font-primary;
+            font-size: 1.5rem;
+            color: $main-text;
+            margin: 0 0 1.5rem;
+            font-weight: 600;
+            
+            small a {
+              font-size: 0.8rem;
+              color: rgba($main-text, 0.6);
+              text-decoration: none;
+              
+              &:hover {
+                color: $main-text;
+                text-decoration: underline;
+              }
+            }
+          }
+          
+          .comment-form {
+            .logged-in-as {
+              font-family: $font-secondary;
+              font-size: 0.9rem;
+              color: rgba($main-text, 0.7);
+              margin-bottom: 1.5rem;
+              
+              a {
+                color: $main-text;
+                text-decoration: none;
+                font-weight: 500;
+                
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+              
+              .required {
+                color: #e74c3c;
+              }
+            }
+            
+            .comment-form-comment {
+              margin-bottom: 1.5rem;
+              
+              label {
+                display: block;
+                font-family: $font-secondary;
+                font-weight: 600;
+                color: $main-text;
+                margin-bottom: 0.5rem;
+                
+                .required {
+                  color: #e74c3c;
+                }
+              }
+              
+              textarea {
+                width: 100%;
+                min-height: 120px;
+                padding: 15px;
+                border: 2px solid rgba($main-text, 0.2);
+                background-color: $body-bg;
+                color: $main-text;
+                font-family: $font-secondary;
+                font-size: 1rem;
+                line-height: 1.5;
+                resize: vertical;
+                transition: all 0.25s ease;
+                
+                &:focus {
+                  outline: none;
+                  border-color: $main-text;
+                  box-shadow: 0 0 0 3px rgba($main-text, 0.1);
+                }
+                
+                &::placeholder {
+                  color: rgba($main-text, 0.5);
+                }
+              }
+            }
+            
+            .form-submit {
+              margin: 0;
+              
+              .submit {
+                background-color: $main-text;
+                color: $body-bg;
+                padding: 12px 30px;
+                border: 2px solid $main-text;
+                font-family: $font-secondary;
+                font-weight: 600;
+                font-size: 1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                
+                &:hover {
+                  background-color: transparent;
+                  color: $main-text;
+                  transform: translateY(-2px);
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+                
+                &:active {
+                  transform: translateY(0);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-medium) {
+    padding: 70px 0;
+    
+    .single-posts .single-post {
+      header {
+        padding: 35px 35px 25px;
+        
+        h1 {
+          font-size: 2.2rem;
+        }
+      }
+      
+      .post-info {
+        padding: 28px 35px;
+      }
+      
+      .single-content {
+        padding: 35px;
+        
+        p {
+          font-size: 1.05rem;
+        }
+        
+        h2 {
+          font-size: 1.7rem;
+        }
+        
+        h3 {
+          font-size: 1.4rem;
+        }
+      }
+      
+      .comments {
+        padding: 35px;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-tablet) {
+    padding: 60px 0;
+    
+    .single-posts .single-post {
+      header {
+        padding: 30px 30px 20px;
+        
+        h1 {
+          font-size: 2rem;
+        }
+      }
+      
+      .post-info {
+        padding: 25px 30px;
+        
+        .post-meta {
+          flex-direction: column;
+          gap: 15px;
+          
+          > div {
+            min-width: auto;
+          }
+        }
+      }
+      
+      .single-content {
+        padding: 30px;
+        
+        p {
+          font-size: 1rem;
+        }
+        
+        h2 {
+          font-size: 1.6rem;
+        }
+        
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+      
+      .comments {
+        padding: 30px;
+      }
+    }
+  }
+  
+  @media (max-width: $breakpoint-small) {
+    padding: 40px 0;
+    
+    .single-posts .single-post {
+      header {
+        padding: 20px 20px 15px;
+        
+        h1 {
+          font-size: 1.6rem;
+        }
+      }
+      
+      .post-info {
+        padding: 20px;
+      }
+      
+      .single-content {
+        padding: 20px;
+        
+        p {
+          font-size: 0.95rem;
+        }
+        
+        h2 {
+          font-size: 1.4rem;
+        }
+        
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+      
+      .comments {
+        padding: 20px;
+        
+        .comment-respond .comment-form {
+          .comment-form-comment textarea {
+            padding: 12px;
+          }
+          
+          .form-submit .submit {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+  }
+}
