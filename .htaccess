@@ -1,0 +1,41 @@
+# OD Theme Security .htaccess
+
+# Deny access to theme files
+<Files "*.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Allow access to template files only
+<FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Deny access to sensitive files
+<Files "functions.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "*.log">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files ".htaccess">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Disable server signature
+ServerSignature Off
+
+# Prevent access to version control files
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

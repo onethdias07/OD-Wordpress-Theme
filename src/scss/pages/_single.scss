@@ -11,6 +11,14 @@
     margin: 0 auto;
     padding: 0 20px;
     
+    @media (max-width: $breakpoint-tablet) {
+      padding: 0 18px;
+    }
+    
+    @media (max-width: $breakpoint-small) {
+      padding: 0 15px;
+    }
+    
     .single-post {
       background-color: $body-bg;
       border: 2px solid rgba($main-text, 0.1);
@@ -483,6 +491,24 @@
       
       .comments {
         padding: 30px;
+        
+        .comment-respond .comment-form {
+          .comment-form-comment {
+            textarea {
+              padding: 14px;
+              width: 100%;
+              max-width: 100%;
+              box-sizing: border-box;
+            }
+          }
+          
+          .form-submit .submit {
+            padding: 12px 25px;
+            font-size: 0.95rem;
+            max-width: 100%;
+            box-sizing: border-box;
+          }
+        }
       }
     }
   }

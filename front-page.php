@@ -59,6 +59,71 @@
         </div>
     </section>
 
+    <section class="security-section">
+        <div class="container">
+            <h2 class="section-title">Enterprise-Grade Security</h2>
+            <div class="security-intro">
+                <p class="security-subtitle">Built with comprehensive security measures to protect against cyber attacks and ensure data integrity</p>
+            </div>
+            <div class="security-grid">
+                <div class="security-card">
+                    <div class="security-icon">🛡️</div>
+                    <h3>Attack Prevention</h3>
+                    <ul>
+                        <li>SQL Injection Protection</li>
+                        <li>XSS Prevention</li>
+                        <li>CSRF Protection</li>
+                        <li>Brute Force Prevention</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🔒</div>
+                    <h3>Data Security</h3>
+                    <ul>
+                        <li>Input Sanitization</li>
+                        <li>Output Escaping</li>
+                        <li>Secure File Uploads</li>
+                        <li>Nonce Verification</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🔐</div>
+                    <h3>Access Control</h3>
+                    <ul>
+                        <li>Login Rate Limiting</li>
+                        <li>User Enumeration Prevention</li>
+                        <li>File Access Restrictions</li>
+                        <li>Admin Security Headers</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon">🛠️</div>
+                    <h3>Security Headers</h3>
+                    <ul>
+                        <li>Content Security Policy</li>
+                        <li>X-Frame-Options</li>
+                        <li>XSS Protection</li>
+                        <li>HSTS Implementation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="security-features">
+                <div class="security-highlight">
+                    <h3>🔍 Continuous Monitoring</h3>
+                    <p>Failed login attempts monitoring, suspicious activity detection, and comprehensive security logging</p>
+                </div>
+                <div class="security-highlight">
+                    <h3>📋 Security Checklist</h3>
+                    <p>Complete security maintenance guide with weekly, monthly, and quarterly security tasks</p>
+                </div>
+                <div class="security-highlight">
+                    <h3>⚡ Performance & Security</h3>
+                    <p>Optimized security implementations that don't compromise site performance or user experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="portfolio-section">
         <div class="container">
             <h2 class="section-title">Theme Features Showcase</h2>

@@ -123,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const mobileNavigation = document.querySelector('.main-navigation');
-    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
     
     if (!mobileMenuToggle || !mobileNavigation) return;
@@ -136,11 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Toggle classes
         mobileMenuToggle.classList.toggle('active', isMenuOpen);
         mobileNavigation.classList.toggle('active', isMenuOpen);
-        
-        // Only use overlay on tablet and larger screens
-        if (mobileMenuOverlay && window.innerWidth > 576) {
-            mobileMenuOverlay.classList.toggle('active', isMenuOpen);
-        }
         
         // Prevent body scroll when menu is open
         if (isMenuOpen) {
@@ -167,15 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleMobileMenu();
     });
     
-    // Close menu when overlay is clicked (only on tablet+)
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', function() {
-            if (window.innerWidth > 576) {
-                closeMobileMenu();
-            }
-        });
-    }
-    
     // Close menu when nav link is clicked
     const navLinks = mobileNavigation.querySelectorAll('.header-nav a');
     navLinks.forEach(link => {
@@ -193,11 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 1024 && isMenuOpen) {
             closeMobileMenu();
-        }
-        
-        // Remove overlay on mobile resize
-        if (mobileMenuOverlay && window.innerWidth <= 576) {
-            mobileMenuOverlay.classList.remove('active');
         }
     });
     
