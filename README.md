@@ -317,7 +317,7 @@ the Free Software Foundation; either version 2 of the License, or
 
 **Oneth Dias**
 - GitHub: [@onethdias07](https://github.com/onethdias07)
-- Email: [theonethdias](theonethdias@gmail.com)
+- Email: [theonethdias](mailto:theonethdias@gmail.com)
 
 ## 🆘 Support
 
