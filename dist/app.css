@@ -185,6 +185,77 @@ small {
   }
 }
 
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffe3;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #212121;
+  border-radius: 0;
+  border: none;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(58.5, 58.5, 58.5);
+}
+::-webkit-scrollbar-thumb:active {
+  background: rgb(45.75, 45.75, 45.75);
+}
+
+::-webkit-scrollbar-corner {
+  background: #ffffe3;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #212121 #ffffe3;
+}
+
+.sidebar,
+.content-area,
+.archive-posts,
+.search-results {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(33, 33, 33, 0.6) transparent;
+}
+.sidebar::-webkit-scrollbar,
+.content-area::-webkit-scrollbar,
+.archive-posts::-webkit-scrollbar,
+.search-results::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.sidebar::-webkit-scrollbar-track,
+.content-area::-webkit-scrollbar-track,
+.archive-posts::-webkit-scrollbar-track,
+.search-results::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0;
+}
+.sidebar::-webkit-scrollbar-thumb,
+.content-area::-webkit-scrollbar-thumb,
+.archive-posts::-webkit-scrollbar-thumb,
+.search-results::-webkit-scrollbar-thumb {
+  background: rgba(33, 33, 33, 0.6);
+  border-radius: 0;
+  border: none;
+}
+.sidebar::-webkit-scrollbar-thumb:hover,
+.content-area::-webkit-scrollbar-thumb:hover,
+.archive-posts::-webkit-scrollbar-thumb:hover,
+.search-results::-webkit-scrollbar-thumb:hover {
+  background: rgba(33, 33, 33, 0.8);
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+  background: rgba(33, 33, 33, 0.8);
+}
+
 .site-header {
   padding: 20px 0;
   position: sticky;
@@ -676,9 +747,10 @@ small {
     gap: 0;
   }
   .site-header .main-navigation {
-    top: 78px;
-    height: calc(100vh - 78px);
+    top: 105px;
+    height: calc(100vh - 105px);
     width: 100%;
+    overflow: hidden;
   }
   .site-header .main-navigation .header-nav {
     padding: 20px 0;
@@ -699,16 +771,17 @@ small {
     height: 30px;
     padding: 3px;
     gap: 3px;
+    outline: none;
   }
   .site-header .mobile-menu-toggle .hamburger-line {
     width: 22px;
     height: 2px;
   }
   .site-header .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translateY(5px);
+    transform: rotate(45deg) translateY(7px);
   }
   .site-header .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translateY(-5px);
+    transform: rotate(-45deg) translateY(-7px);
   }
   .site-header .header-search .search-form {
     min-width: 150px;
@@ -853,6 +926,7 @@ body {
   }
   .content-wrapper .sidebar {
     padding: 20px;
+    margin-bottom: 30px;
   }
 }
 
@@ -1368,6 +1442,11 @@ body {
   padding: 0 20px;
   text-align: center;
 }
+@media (max-width: 576px) {
+  .contact-page .page-header .container {
+    padding: 0 15px;
+  }
+}
 .contact-page .page-header h1 {
   font-family: "Zodiak", serif;
   font-size: 3.5rem;
@@ -1400,6 +1479,11 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+@media (max-width: 576px) {
+  .contact-page .contact-form-section .container {
+    padding: 0 15px;
+  }
+}
 .contact-page .contact-form-section h2 {
   font-family: "Zodiak", serif;
   font-size: 2.5rem;
@@ -1429,13 +1513,53 @@ body {
   gap: 30px 70px;
   margin-bottom: 30px;
 }
+@media (max-width: 768px) {
+  .contact-page .wpcf7 .cf7-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .contact-page .wpcf7 .cf7-grid {
+    gap: 15px;
+  }
+}
+.contact-page .wpcf7 .cf7-grid .cf7-field {
+  width: 100%;
+  box-sizing: border-box;
+}
 .contact-page .wpcf7 .cf7-grid .cf7-field:nth-child(5), .contact-page .wpcf7 .cf7-grid .cf7-field:nth-child(6) {
   grid-column: 1/-1;
 }
+@media (max-width: 768px) {
+  .contact-page .wpcf7 .cf7-grid .cf7-field:nth-child(5), .contact-page .wpcf7 .cf7-grid .cf7-field:nth-child(6) {
+    grid-column: 1;
+  }
+}
 .contact-page .wpcf7 .cf7-grid .cf7-actions {
   grid-column: 1/-1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   margin-top: 20px;
+}
+@media (max-width: 768px) {
+  .contact-page .wpcf7 .cf7-grid .cf7-actions {
+    grid-column: 1;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 576px) {
+  .contact-page .wpcf7 .cf7-grid .cf7-actions {
+    margin-top: 10px;
+  }
+}
+.contact-page .wpcf7 .cf7-grid .cf7-actions p {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
 }
 .contact-page .wpcf7 label {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -1460,6 +1584,7 @@ body {
 .contact-page .wpcf7 select,
 .contact-page .wpcf7 textarea {
   width: 100%;
+  max-width: 100%;
   padding: 16px 20px;
   border: 2px solid #212121;
   border-radius: 0;
@@ -1470,6 +1595,7 @@ body {
   transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 @media (max-width: 768px) {
   .contact-page .wpcf7 input[type=text],
@@ -1477,6 +1603,7 @@ body {
   .contact-page .wpcf7 select,
   .contact-page .wpcf7 textarea {
     font-size: 14px;
+    padding: 15px 18px;
   }
 }
 @media (max-width: 576px) {
@@ -1485,7 +1612,7 @@ body {
   .contact-page .wpcf7 select,
   .contact-page .wpcf7 textarea {
     font-size: 14px;
-    padding: 14px 18px;
+    padding: 14px 16px;
   }
 }
 .contact-page .wpcf7 input[type=text]::-moz-placeholder, .contact-page .wpcf7 input[type=email]::-moz-placeholder, .contact-page .wpcf7 select::-moz-placeholder, .contact-page .wpcf7 textarea::-moz-placeholder {
@@ -1943,7 +2070,9 @@ body {
 @media (max-width: 576px) {
   .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta {
     font-size: 0.75rem;
-    gap: 10px;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta > span {
@@ -1958,12 +2087,29 @@ body {
   color: rgba(33, 33, 33, 0.4);
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta > span:not(:first-child)::before {
+    margin-right: 12px;
+    margin-left: -6px;
+  }
+}
+@media (max-width: 576px) {
+  .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta > span:not(:first-child)::before {
+    display: none;
+  }
+}
 .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta > span span {
   display: inline;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 150px;
+}
+@media (max-width: 576px) {
+  .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta > span span {
+    max-width: 100%;
+    white-space: normal;
+  }
 }
 .archive-page .archive-posts .archive-post .post-link .archive-meta .post-meta .post-date {
   font-weight: 500;
@@ -2381,6 +2527,9 @@ body {
   padding: 40px;
   border-top: 1px solid rgba(33, 33, 33, 0.1);
   background-color: rgba(33, 33, 33, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 .single-page .single-posts .single-post .comments .comment-respond h3 {
   font-family: "Zodiak", serif;
@@ -2430,6 +2579,7 @@ body {
 }
 .single-page .single-posts .single-post .comments .comment-respond .comment-form .comment-form-comment textarea {
   width: 100%;
+  max-width: 100%;
   min-height: 120px;
   padding: 15px;
   border: 2px solid rgba(33, 33, 33, 0.2);
@@ -2440,6 +2590,7 @@ body {
   line-height: 1.5;
   resize: vertical;
   transition: all 0.25s ease;
+  box-sizing: border-box;
 }
 .single-page .single-posts .single-post .comments .comment-respond .comment-form .comment-form-comment textarea:focus {
   outline: none;
@@ -2572,10 +2723,15 @@ body {
   }
   .single-page .single-posts .single-post .comments .comment-respond .comment-form .comment-form-comment textarea {
     padding: 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .single-page .single-posts .single-post .comments .comment-respond .comment-form .form-submit .submit {
     padding: 10px 20px;
     font-size: 0.9rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 

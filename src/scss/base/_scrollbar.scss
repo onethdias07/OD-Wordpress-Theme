@@ -1,0 +1,79 @@
+@use '../abstracts/variables' as *;
+
+// Custom Scrollbar Styles
+// Zero border radius with card background color
+
+// Webkit browsers (Chrome, Safari, Edge)
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $body-bg;
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $card-bg;
+  border-radius: 0;
+  border: none;
+  
+  &:hover {
+    background: lighten($card-bg, 10%);
+  }
+  
+  &:active {
+    background: lighten($card-bg, 5%);
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: $body-bg;
+}
+
+// Firefox
+html {
+  scrollbar-width: thin;
+  scrollbar-color: $card-bg $body-bg;
+}
+
+// Custom scrollbar for specific containers
+.sidebar,
+.content-area,
+.archive-posts,
+.search-results {
+  // Webkit
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 0;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: rgba($card-bg, 0.6);
+    border-radius: 0;
+    border: none;
+    
+    &:hover {
+      background: rgba($card-bg, 0.8);
+    }
+  }
+  
+  // Firefox
+  scrollbar-width: thin;
+  scrollbar-color: rgba($card-bg, 0.6) transparent;
+}
+
+// Ensure scrollbar appears on hover for certain containers
+.sidebar {
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: rgba($card-bg, 0.8);
+    }
+  }
+}

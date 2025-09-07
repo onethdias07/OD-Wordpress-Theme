@@ -568,9 +568,10 @@
     }
     
     .main-navigation {
-      top: 78px;
-      height: calc(100vh - 78px);
+      top: 105px;
+      height: calc(100vh - 105px);
       width: 100%;
+      overflow: hidden;
       
       .header-nav {
         padding: 20px 0;
@@ -596,6 +597,7 @@
       height: 30px;
       padding: 3px;
       gap: 3px;
+      outline: none;
       
       .hamburger-line {
         width: 22px;
@@ -604,11 +606,11 @@
       
       &.active .hamburger-line {
         &:nth-child(1) {
-          transform: rotate(45deg) translateY(5px);
+          transform: rotate(45deg) translateY(7px);
         }
         
         &:nth-child(3) {
-          transform: rotate(-45deg) translateY(-5px);
+          transform: rotate(-45deg) translateY(-7px);
         }
       }
     }

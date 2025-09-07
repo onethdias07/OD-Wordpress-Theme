@@ -280,6 +280,9 @@
         padding: 40px;
         border-top: 1px solid rgba($main-text, 0.1);
         background-color: rgba($main-text, 0.02);
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
         
         .comment-respond {
           h3 {
@@ -340,6 +343,7 @@
               
               textarea {
                 width: 100%;
+                max-width: 100%;
                 min-height: 120px;
                 padding: 15px;
                 border: 2px solid rgba($main-text, 0.2);
@@ -350,6 +354,7 @@
                 line-height: 1.5;
                 resize: vertical;
                 transition: all 0.25s ease;
+                box-sizing: border-box;
                 
                 &:focus {
                   outline: none;
@@ -518,13 +523,20 @@
         padding: 20px;
         
         .comment-respond .comment-form {
-          .comment-form-comment textarea {
-            padding: 12px;
+          .comment-form-comment {
+            textarea {
+              padding: 12px;
+              width: 100%;
+              max-width: 100%;
+              box-sizing: border-box;
+            }
           }
           
           .form-submit .submit {
             padding: 10px 20px;
             font-size: 0.9rem;
+            max-width: 100%;
+            box-sizing: border-box;
           }
         }
       }

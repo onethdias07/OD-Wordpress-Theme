@@ -144,7 +144,7 @@
           margin-top: auto;
           flex-shrink: 0;
           
-          .post-meta {
+            .post-meta {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
@@ -160,7 +160,9 @@
             
             @media (max-width: $breakpoint-small) {
               font-size: 0.75rem;
-              gap: 10px;
+              gap: 8px;
+              flex-direction: column;
+              align-items: flex-start;
             }
             
             > span {
@@ -174,6 +176,15 @@
                 margin-left: -8px;
                 color: rgba($main-text, 0.4);
                 font-weight: bold;
+                
+                @media (max-width: $breakpoint-tablet) {
+                  margin-right: 12px;
+                  margin-left: -6px;
+                }
+                
+                @media (max-width: $breakpoint-small) {
+                  display: none;
+                }
               }
               
               span {
@@ -182,10 +193,13 @@
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 max-width: 150px;
+                
+                @media (max-width: $breakpoint-small) {
+                  max-width: 100%;
+                  white-space: normal;
+                }
               }
-            }
-            
-            .post-date {
+            }            .post-date {
               font-weight: 500;
               
               time {
